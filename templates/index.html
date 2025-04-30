@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UTM Link Builder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Campaign URL Builder</h1>
+        <form method="post">
+            <label>Base URL:</label>
+            <input type="text" name="base_url" required>
+
+            <label>Campaign Source:</label>
+            <input type="text" name="source" required>
+
+            <label>Campaign Medium:</label>
+            <input type="text" name="medium" required>
+
+            <label>Campaign Name:</label>
+            <input type="text" name="campaign" required>
+
+            <label>Campaign Content (optional):</label>
+            <input type="text" name="content">
+
+            <label>Campaign Term (optional):</label>
+            <input type="text" name="term">
+
+            <button type="submit">Generate UTM URL</button>
+        </form>
+
+        {% if final_url %}
+        <div class="result">
+            <h2>Generated URL:</h2>
+            <input type="text" value="{{ final_url }}" readonly onclick="this.select();">
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
